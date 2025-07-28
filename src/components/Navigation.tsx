@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import aeestrLogo from "@/assets/aeestr-logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,10 +40,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div 
-            className="font-bold text-xl md:text-2xl cursor-pointer transition-colors duration-300"
+            className="flex items-center gap-3 cursor-pointer transition-all duration-300"
             onClick={() => scrollToSection('home')}
           >
-            <span className={`${isScrolled ? 'text-primary' : 'text-white'}`}>
+            <img src={aeestrLogo} alt="AEESTR Logo" className="w-10 h-10 md:w-12 md:h-12" />
+            <span className={`font-bold text-xl md:text-2xl transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-white'}`}>
               AEESTR
             </span>
           </div>

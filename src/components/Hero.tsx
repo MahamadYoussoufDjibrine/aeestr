@@ -25,21 +25,13 @@ const Hero = () => {
             en offrant un soutien académique, social et culturel pour votre réussite.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div className="flex justify-center items-center mb-16">
             <Button 
               size="lg" 
-              className="bg-white text-primary hover:bg-white/90 shadow-hero px-8 py-4 text-lg font-semibold"
+              className="bg-white text-secondary hover:bg-white/90 shadow-hero px-8 py-4 text-lg font-semibold"
               onClick={() => scrollToSection('about')}
             >
               Découvrir notre mission
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-white text-white hover:bg-white/10 backdrop-blur-sm px-8 py-4 text-lg"
-              onClick={() => scrollToSection('contact')}
-            >
-              Nous contacter
             </Button>
           </div>
         </div>

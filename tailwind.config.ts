@@ -54,10 +54,10 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				aeestr: {
-					blue: 'hsl(var(--aeestr-blue))',
-					'blue-light': 'hsl(var(--aeestr-blue-light))',
-					'blue-dark': 'hsl(var(--aeestr-blue-dark))',
-					'blue-darker': 'hsl(var(--aeestr-blue-darker))'
+					orange: 'hsl(var(--aeestr-orange))',
+					'orange-light': 'hsl(var(--aeestr-orange-light))',
+					'orange-dark': 'hsl(var(--aeestr-orange-dark))',
+					blue: 'hsl(var(--aeestr-blue))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
