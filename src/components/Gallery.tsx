@@ -1,12 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Upload, Filter, X, Play, Image as ImageIcon, Video, Plus } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Filter, X, Play, Image as ImageIcon, Video } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -24,14 +21,6 @@ const Gallery = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [filter, setFilter] = useState<'all' | 'image' | 'video'>('all');
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadForm, setUploadForm] = useState({
-    title: '',
-    description: '',
-    type: 'image' as 'image' | 'video'
-  });
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Load gallery items from database
   useEffect(() => {
@@ -69,77 +58,11 @@ const Gallery = () => {
     }
   };
 
-  const handleFileUpload = async (file: File) => {
-    if (!file) return;
-
-    if (!uploadForm.title.trim()) {
-      toast({
-        title: "Erreur",
-        description: "Veuillez entrer un titre.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setIsUploading(true);
-
-    try {
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${Date.now()}.${fileExt}`;
-      const filePath = `${uploadForm.type}s/${fileName}`;
-
-      // Upload file to storage
-      const { error: uploadError } = await supabase.storage
-        .from('gallery')
-        .upload(filePath, file);
-
-      if (uploadError) throw uploadError;
-
-      // Get public URL
-      const { data: { publicUrl } } = supabase.storage
-        .from('gallery')
-        .getPublicUrl(filePath);
-
-      // Save to database
-      const { error: dbError } = await supabase
-        .from('gallery')
-        .insert([{
-          title: uploadForm.title,
-          description: uploadForm.description,
-          type: uploadForm.type,
-          url: publicUrl,
-          file_name: fileName,
-          file_size: file.size
-        }]);
-
-      if (dbError) throw dbError;
-
-      toast({
-        title: "Succès",
-        description: "Fichier téléchargé avec succès !",
-      });
-
-      // Reset form and reload gallery
-      setUploadForm({ title: '', description: '', type: 'image' });
-      setIsDialogOpen(false);
-      loadGalleryItems();
-
-    } catch (error) {
-      console.error('Upload error:', error);
-      toast({
-        title: "Erreur",
-        description: "Erreur lors du téléchargement.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsUploading(false);
-    }
-  };
 
   const filteredItems = items.filter(item => filter === 'all' || item.type === filter);
 
   return (
-    <section id="gallery" className="py-20 bg-aeestr-green-light">
+    <section id="gallery" className="py-20 bg-aeestr-blue-light">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
@@ -179,88 +102,6 @@ const Gallery = () => {
               <Video className="w-4 h-4" />
               Vidéos ({items.filter(item => item.type === 'video').length})
             </Button>
-
-            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-              <DialogTrigger asChild>
-                <Button className="ml-auto bg-gradient-hero hover:opacity-90">
-                  <Plus className="w-4 h-4 mr-2" />
-                  Ajouter du contenu
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-md">
-                <DialogHeader>
-                  <DialogTitle>Ajouter du contenu à la galerie</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="title">Titre *</Label>
-                    <Input
-                      id="title"
-                      value={uploadForm.title}
-                      onChange={(e) => setUploadForm(prev => ({ ...prev, title: e.target.value }))}
-                      placeholder="Titre du contenu"
-                    />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="description">Description</Label>
-                    <Textarea
-                      id="description"
-                      value={uploadForm.description}
-                      onChange={(e) => setUploadForm(prev => ({ ...prev, description: e.target.value }))}
-                      placeholder="Description du contenu"
-                      rows={3}
-                    />
-                  </div>
-
-                  <div>
-                    <Label>Type de contenu</Label>
-                    <div className="flex gap-4 mt-2">
-                      <Button
-                        type="button"
-                        variant={uploadForm.type === 'image' ? 'default' : 'outline'}
-                        onClick={() => setUploadForm(prev => ({ ...prev, type: 'image' }))}
-                        className="flex-1"
-                      >
-                        <ImageIcon className="w-4 h-4 mr-2" />
-                        Image
-                      </Button>
-                      <Button
-                        type="button"
-                        variant={uploadForm.type === 'video' ? 'default' : 'outline'}
-                        onClick={() => setUploadForm(prev => ({ ...prev, type: 'video' }))}
-                        className="flex-1"
-                      >
-                        <Video className="w-4 h-4 mr-2" />
-                        Vidéo
-                      </Button>
-                    </div>
-                  </div>
-
-                  <div>
-                    <input
-                      ref={fileInputRef}
-                      type="file"
-                      accept={uploadForm.type === 'image' ? 'image/*' : 'video/*'}
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) handleFileUpload(file);
-                      }}
-                      className="hidden"
-                    />
-                    <Button
-                      type="button"
-                      onClick={() => fileInputRef.current?.click()}
-                      disabled={isUploading}
-                      className="w-full"
-                    >
-                      <Upload className="w-4 h-4 mr-2" />
-                      {isUploading ? 'Téléchargement...' : `Choisir ${uploadForm.type === 'image' ? 'une image' : 'une vidéo'}`}
-                    </Button>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
           </div>
         </div>
 

@@ -21,7 +21,7 @@ All colors MUST be HSL.
     --primary-foreground: 0 0% 100%;
     --primary-glow: 210 100% 60%;
 
-    --secondary: 150 60% 45%;
+    --secondary: 210 80% 35%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96%;
@@ -37,15 +37,15 @@ All colors MUST be HSL.
     --input: 210 40% 96%;
     --ring: 210 100% 45%;
 
-    /* AEESTR Brand Colors */
+    /* AEESTR Brand Colors - Dark Blue Theme */
     --aeestr-blue: 210 100% 45%;
     --aeestr-blue-light: 210 100% 95%;
-    --aeestr-green: 150 60% 45%;
-    --aeestr-green-light: 150 40% 95%;
+    --aeestr-blue-dark: 210 80% 35%;
+    --aeestr-blue-darker: 210 70% 25%;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--aeestr-blue)), hsl(var(--aeestr-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--aeestr-blue)), hsl(var(--aeestr-blue-dark)));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.8), hsl(210 100% 98% / 0.9));
     
     /* Shadows */

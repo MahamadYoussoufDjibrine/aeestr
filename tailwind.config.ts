@@ -56,8 +56,8 @@ export default {
 				aeestr: {
 					blue: 'hsl(var(--aeestr-blue))',
 					'blue-light': 'hsl(var(--aeestr-blue-light))',
-					green: 'hsl(var(--aeestr-green))',
-					'green-light': 'hsl(var(--aeestr-green-light))'
+					'blue-dark': 'hsl(var(--aeestr-blue-dark))',
+					'blue-darker': 'hsl(var(--aeestr-blue-darker))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
