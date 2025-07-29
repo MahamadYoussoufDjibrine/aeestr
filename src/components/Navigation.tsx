@@ -62,16 +62,6 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className={`transition-all duration-300 ${
-                isScrolled 
-                  ? 'bg-gradient-hero hover:opacity-90' 
-                  : 'bg-white text-primary hover:bg-white/90'
-              }`}
-            >
-              Nous Contacter
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,12 +88,6 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
-              <Button 
-                onClick={() => scrollToSection('contact')}
-                className="bg-gradient-hero hover:opacity-90 transition-opacity mt-4"
-              >
-                Nous Contacter
-              </Button>
             </div>
           </div>
         )}

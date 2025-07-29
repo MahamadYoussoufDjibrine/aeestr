@@ -132,6 +132,9 @@ const Footer = () => {
               <a href="#" className="hover:text-white transition-colors duration-300">
                 Plan du Site
               </a>
+              <a href="/admin/login" className="hover:text-white transition-colors duration-300">
+                Admin
+              </a>
             </div>
           </div>
         </div>
