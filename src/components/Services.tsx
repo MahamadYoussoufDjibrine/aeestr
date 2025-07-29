@@ -4,39 +4,39 @@ const Services = () => {
   const services = [
     {
       icon: <GraduationCap className="w-10 h-10" />,
-      title: "Soutien Académique",
-      description: "Tutorat, groupes d'étude, et partage de ressources éducatives pour améliorer vos performances scolaires.",
-      features: ["Sessions de tutorat", "Groupes d'étude", "Ressources pédagogiques", "Accompagnement personnalisé"]
+      title: "Academic Support",
+      description: "Tutoring, study groups, and sharing educational resources to improve your academic performance.",
+      features: ["Tutoring sessions", "Study groups", "Educational resources", "Personalized support"]
     },
     {
       icon: <Users2 className="w-10 h-10" />,
-      title: "Intégration Sociale",
-      description: "Faciliter votre adaptation à la vie rwandaise et créer des liens durables avec la communauté locale.",
-      features: ["Activités d'accueil", "Parrainage étudiant", "Échanges culturels", "Réseau social"]
+      title: "Social Integration",
+      description: "Facilitating your adaptation to Rwandan life and creating lasting connections with the local community.",
+      features: ["Welcome activities", "Student mentorship", "Cultural exchanges", "Social network"]
     },
     {
       icon: <Calendar className="w-10 h-10" />,
-      title: "Événements Culturels",
-      description: "Organisation d'événements pour célébrer notre héritage tchadien et découvrir la culture rwandaise.",
-      features: ["Fêtes traditionnelles", "Soirées culturelles", "Conférences", "Festivals"]
+      title: "Cultural Events",
+      description: "Organizing events to celebrate our Chadian heritage and discover Rwandan culture.",
+      features: ["Traditional celebrations", "Cultural evenings", "Conferences", "Festivals"]
     },
     {
       icon: <Briefcase className="w-10 h-10" />,
-      title: "Orientation Professionnelle",
-      description: "Conseils pour votre carrière, stages, et opportunités d'emploi au Rwanda et au Tchad.",
-      features: ["Conseils carrière", "Recherche de stages", "Networking professionnel", "Ateliers CV"]
+      title: "Career Guidance",
+      description: "Career advice, internships, and job opportunities in Rwanda and Chad.",
+      features: ["Career counseling", "Internship search", "Professional networking", "CV workshops"]
     },
     {
       icon: <Globe className="w-10 h-10" />,
-      title: "Assistance Administrative",
-      description: "Aide pour les démarches administratives, visa, logement, et autres formalités officielles.",
-      features: ["Aide visa/permis", "Recherche logement", "Démarches légales", "Orientation administrative"]
+      title: "Administrative Assistance",
+      description: "Help with administrative procedures, visas, housing, and other official formalities.",
+      features: ["Visa/permit assistance", "Housing search", "Legal procedures", "Administrative guidance"]
     },
     {
       icon: <Handshake className="w-10 h-10" />,
-      title: "Médiation et Soutien",
-      description: "Médiation en cas de conflits et soutien psychologique pour votre bien-être général.",
-      features: ["Médiation conflits", "Soutien psychologique", "Conseil personnel", "Assistance d'urgence"]
+      title: "Mediation and Support",
+      description: "Conflict mediation and psychological support for your general well-being.",
+      features: ["Conflict mediation", "Psychological support", "Personal counseling", "Emergency assistance"]
     }
   ];
 
@@ -45,12 +45,12 @@ const Services = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Nos <span className="text-primary">Services</span>
+            Our <span className="text-primary">Services</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-hero mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            AEESTR offre une gamme complète de services pour accompagner les étudiants tchadiens 
-            dans leur parcours académique et leur intégration sociale au Rwanda.
+            AEESTR offers a comprehensive range of services to support Chadian students 
+            in their academic journey and social integration in Rwanda.
           </p>
         </div>
         
@@ -82,24 +82,24 @@ const Services = () => {
         <div className="mt-16 text-center">
           <div className="bg-gradient-card p-8 md:p-12 rounded-3xl shadow-soft">
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
-              Besoin d'une Assistance Personnalisée ?
+              Need Personalized Assistance?
             </h3>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Notre équipe est disponible pour vous accompagner dans vos démarches spécifiques. 
-              N'hésitez pas à nous contacter pour une consultation personnalisée.
+              Our team is available to help you with your specific needs. 
+              Don't hesitate to contact us for a personalized consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <div className="bg-white p-4 rounded-xl flex items-center gap-3">
                 <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-foreground font-medium">Disponible 24/7</span>
+                <span className="text-foreground font-medium">Available 24/7</span>
               </div>
               <div className="bg-white p-4 rounded-xl flex items-center gap-3">
                 <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
-                <span className="text-foreground font-medium">Réponse rapide</span>
+                <span className="text-foreground font-medium">Quick response</span>
               </div>
               <div className="bg-white p-4 rounded-xl flex items-center gap-3">
                 <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-foreground font-medium">Service gratuit</span>
+                <span className="text-foreground font-medium">Free service</span>
               </div>
             </div>
           </div>

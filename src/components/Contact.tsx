@@ -22,8 +22,8 @@ const Contact = () => {
     // Simple form validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
-        title: "Erreur",
-        description: "Veuillez remplir tous les champs requis.",
+        title: "Error",
+        description: "Please fill in all required fields.",
         variant: "destructive"
       });
       return;
@@ -56,8 +56,8 @@ const Contact = () => {
       }
 
       toast({
-        title: "Message envoyé !",
-        description: "Nous vous répondrons dans les plus brefs délais.",
+        title: "Message sent!",
+        description: "We will respond to you as soon as possible.",
       });
 
       // Reset form
@@ -66,8 +66,8 @@ const Contact = () => {
     } catch (error) {
       console.error('Contact form error:', error);
       toast({
-        title: "Erreur",
-        description: "Une erreur s'est produite. Veuillez réessayer.",
+        title: "Error",
+        description: "An error occurred. Please try again.",
         variant: "destructive"
       });
     } finally {
@@ -87,19 +87,19 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Contactez-<span className="text-primary">Nous</span>
+            Contact <span className="text-primary">Us</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-hero mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Nous sommes là pour vous aider ! N'hésitez pas à nous contacter pour toute question, 
-            suggestion ou demande d'assistance.
+            We are here to help you! Don't hesitate to contact us for any questions, 
+            suggestions or assistance requests.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="animate-slide-in-left">
-            <h3 className="text-2xl font-bold mb-8 text-foreground">Informations de Contact</h3>
+            <h3 className="text-2xl font-bold mb-8 text-foreground">Contact Information</h3>
             
             <div className="space-y-6">
               <Card className="p-6 shadow-card hover:shadow-hero transition-all duration-300">
@@ -108,7 +108,7 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Email Officiel</h4>
+                    <h4 className="font-semibold text-foreground mb-2">Official Email</h4>
                     <p className="text-muted-foreground">contact@aeestr.org</p>
                     <p className="text-muted-foreground">info@aeestr.org</p>
                   </div>
@@ -121,9 +121,9 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Téléphone</h4>
+                    <h4 className="font-semibold text-foreground mb-2">Phone</h4>
                     <p className="text-muted-foreground">+250 XXX XXX XXX</p>
-                    <p className="text-sm text-muted-foreground">Disponible du lundi au vendredi, 8h-18h</p>
+                    <p className="text-sm text-muted-foreground">Available Monday to Friday, 8am-6pm</p>
                   </div>
                 </div>
               </Card>
@@ -134,28 +134,28 @@ const Contact = () => {
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Adresse</h4>
+                    <h4 className="font-semibold text-foreground mb-2">Address</h4>
                     <p className="text-muted-foreground">Kigali, Rwanda</p>
-                    <p className="text-sm text-muted-foreground">Adresse complète disponible sur demande</p>
+                    <p className="text-sm text-muted-foreground">Full address available upon request</p>
                   </div>
                 </div>
               </Card>
             </div>
 
             <div className="mt-8 bg-gradient-card p-6 rounded-2xl">
-              <h4 className="font-semibold text-foreground mb-3">Heures d'Ouverture</h4>
+              <h4 className="font-semibold text-foreground mb-3">Office Hours</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Lundi - Vendredi</span>
-                  <span className="text-foreground font-medium">8h00 - 18h00</span>
+                  <span className="text-muted-foreground">Monday - Friday</span>
+                  <span className="text-foreground font-medium">8:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Samedi</span>
-                  <span className="text-foreground font-medium">9h00 - 14h00</span>
+                  <span className="text-muted-foreground">Saturday</span>
+                  <span className="text-foreground font-medium">9:00 AM - 2:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Dimanche</span>
-                  <span className="text-foreground font-medium">Fermé</span>
+                  <span className="text-muted-foreground">Sunday</span>
+                  <span className="text-foreground font-medium">Closed</span>
                 </div>
               </div>
             </div>
@@ -164,12 +164,12 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="animate-slide-in-right">
             <Card className="p-8 shadow-card">
-              <h3 className="text-2xl font-bold mb-6 text-foreground">Envoyez-nous un Message</h3>
+              <h3 className="text-2xl font-bold mb-6 text-foreground">Send us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Nom Complet *
+                    Full Name *
                   </label>
                   <Input
                     id="name"
@@ -177,7 +177,7 @@ const Contact = () => {
                     type="text"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Votre nom complet"
+                    placeholder="Your full name"
                     className="w-full"
                     required
                   />
@@ -185,7 +185,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Adresse Email *
+                    Email Address *
                   </label>
                   <Input
                     id="email"
@@ -193,7 +193,7 @@ const Contact = () => {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="votre.email@exemple.com"
+                    placeholder="your.email@example.com"
                     className="w-full"
                     required
                   />
@@ -208,7 +208,7 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Décrivez votre demande ou votre message..."
+                    placeholder="Describe your request or message..."
                     rows={6}
                     className="w-full resize-none"
                     required
@@ -222,13 +222,13 @@ const Contact = () => {
                   disabled={isSubmitting}
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  {isSubmitting ? "Envoi en cours..." : "Envoyer le Message"}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
 
               <div className="mt-6 p-4 bg-aeestr-blue-light rounded-lg">
                 <p className="text-sm text-muted-foreground text-center">
-                  * Champs obligatoires. Nous nous engageons à répondre dans les 24 heures.
+                  * Required fields. We commit to responding within 24 hours.
                 </p>
               </div>
             </Card>

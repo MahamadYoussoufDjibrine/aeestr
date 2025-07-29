@@ -86,8 +86,8 @@ const AdminDashboard = () => {
     } catch (error) {
       console.error('Error loading gallery:', error);
       toast({
-        title: "Erreur",
-        description: "Impossible de charger la galerie.",
+        title: "Error",
+        description: "Unable to load gallery.",
         variant: "destructive"
       });
     }
@@ -98,8 +98,8 @@ const AdminDashboard = () => {
 
     if (!uploadForm.title.trim()) {
       toast({
-        title: "Erreur",
-        description: "Veuillez entrer un titre.",
+        title: "Error",
+        description: "Please enter a title.",
         variant: "destructive"
       });
       return;
@@ -139,8 +139,8 @@ const AdminDashboard = () => {
       if (dbError) throw dbError;
 
       toast({
-        title: "Succès",
-        description: "Fichier téléchargé avec succès !",
+        title: "Success",
+        description: "File uploaded successfully!",
       });
 
       // Reset form and reload gallery
@@ -151,8 +151,8 @@ const AdminDashboard = () => {
     } catch (error) {
       console.error('Upload error:', error);
       toast({
-        title: "Erreur",
-        description: "Erreur lors du téléchargement.",
+        title: "Error",
+        description: "Error during upload.",
         variant: "destructive"
       });
     } finally {
@@ -161,7 +161,7 @@ const AdminDashboard = () => {
   };
 
   const handleDeleteItem = async (item: GalleryItem) => {
-    if (!confirm(`Êtes-vous sûr de vouloir supprimer "${item.title}" ?`)) {
+    if (!confirm(`Are you sure you want to delete "${item.title}"?`)) {
       return;
     }
 
@@ -184,16 +184,16 @@ const AdminDashboard = () => {
         .remove([`${storageType}/${filePath}`]);
 
       toast({
-        title: "Succès",
-        description: "Contenu supprimé avec succès !",
+        title: "Success",
+        description: "Content deleted successfully!",
       });
 
       loadGalleryItems();
     } catch (error) {
       console.error('Delete error:', error);
       toast({
-        title: "Erreur",
-        description: "Erreur lors de la suppression.",
+        title: "Error",
+        description: "Error during deletion.",
         variant: "destructive"
       });
     }
@@ -210,8 +210,8 @@ const AdminDashboard = () => {
       <header className="bg-gradient-hero text-white py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold">Tableau de bord AEESTR</h1>
-            <p className="text-white/80">Bienvenue, {adminName}</p>
+            <h1 className="text-2xl font-bold">AEESTR Dashboard</h1>
+            <p className="text-white/80">Welcome, {adminName}</p>
           </div>
           <Button
             variant="ghost"
@@ -219,7 +219,7 @@ const AdminDashboard = () => {
             className="text-white hover:bg-white/20"
           >
             <LogOut className="w-4 h-4 mr-2" />
-            Déconnexion
+            Logout
           </Button>
         </div>
       </header>
@@ -229,7 +229,7 @@ const AdminDashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">Total Médias</CardTitle>
+              <CardTitle className="text-sm font-medium text-muted-foreground">Total Media</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{items.length}</div>
@@ -245,7 +245,7 @@ const AdminDashboard = () => {
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">Vidéos</CardTitle>
+              <CardTitle className="text-sm font-medium text-muted-foreground">Videos</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{items.filter(item => item.type === 'video').length}</div>
@@ -257,26 +257,26 @@ const AdminDashboard = () => {
         <Card className="mb-8">
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
-              Gestion de la galerie
+              Gallery Management
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
                   <Button className="bg-gradient-hero hover:opacity-90">
                     <Plus className="w-4 h-4 mr-2" />
-                    Ajouter du contenu
+                    Add Content
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-md">
                   <DialogHeader>
-                    <DialogTitle>Ajouter du contenu à la galerie</DialogTitle>
+                    <DialogTitle>Add Content to Gallery</DialogTitle>
                   </DialogHeader>
                   <div className="space-y-4">
                     <div>
-                      <Label htmlFor="title">Titre *</Label>
+                      <Label htmlFor="title">Title *</Label>
                       <Input
                         id="title"
                         value={uploadForm.title}
                         onChange={(e) => setUploadForm(prev => ({ ...prev, title: e.target.value }))}
-                        placeholder="Titre du contenu"
+                        placeholder="Content title"
                       />
                     </div>
                     
@@ -286,13 +286,13 @@ const AdminDashboard = () => {
                         id="description"
                         value={uploadForm.description}
                         onChange={(e) => setUploadForm(prev => ({ ...prev, description: e.target.value }))}
-                        placeholder="Description du contenu"
+                        placeholder="Content description"
                         rows={3}
                       />
                     </div>
 
                     <div>
-                      <Label>Type de contenu</Label>
+                      <Label>Content Type</Label>
                       <div className="flex gap-4 mt-2">
                         <Button
                           type="button"
@@ -310,7 +310,7 @@ const AdminDashboard = () => {
                           className="flex-1"
                         >
                           <Video className="w-4 h-4 mr-2" />
-                          Vidéo
+                          Video
                         </Button>
                       </div>
                     </div>
@@ -333,7 +333,7 @@ const AdminDashboard = () => {
                         className="w-full"
                       >
                         <Upload className="w-4 h-4 mr-2" />
-                        {isUploading ? 'Téléchargement...' : `Choisir ${uploadForm.type === 'image' ? 'une image' : 'une vidéo'}`}
+                        {isUploading ? 'Uploading...' : `Choose ${uploadForm.type === 'image' ? 'an Image' : 'a Video'}`}
                       </Button>
                     </div>
                   </div>
@@ -372,7 +372,7 @@ const AdminDashboard = () => {
                 <div className="absolute top-3 right-3">
                   <Badge variant="secondary" className="bg-white/90">
                     {item.type === "video" ? (
-                      <><Video className="w-3 h-3 mr-1" /> Vidéo</>
+                      <><Video className="w-3 h-3 mr-1" /> Video</>
                     ) : (
                       <><ImageIcon className="w-3 h-3 mr-1" /> Photo</>
                     )}
@@ -411,9 +411,9 @@ const AdminDashboard = () => {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <ImageIcon className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Aucun contenu</h3>
+            <h3 className="text-xl font-semibold mb-2">No Content</h3>
             <p className="text-muted-foreground mb-6">
-              Commencez par ajouter des photos et vidéos à votre galerie.
+              Start by adding photos and videos to your gallery.
             </p>
           </div>
         )}

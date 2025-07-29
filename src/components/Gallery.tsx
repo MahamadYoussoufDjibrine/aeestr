@@ -51,8 +51,8 @@ const Gallery = () => {
     } catch (error) {
       console.error('Error loading gallery:', error);
       toast({
-        title: "Erreur",
-        description: "Impossible de charger la galerie.",
+        title: "Error",
+        description: "Unable to load gallery.",
         variant: "destructive"
       });
     }
@@ -66,11 +66,11 @@ const Gallery = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Notre <span className="text-secondary">Galerie</span>
+            Our <span className="text-secondary">Gallery</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-hero mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Découvrez nos activités, événements et moments marquants à travers photos et vidéos. 
+            Discover our activities, events and memorable moments through photos and videos. 
             Chaque image raconte l'histoire de notre communauté dynamique.
           </p>
         </div>
@@ -100,7 +100,7 @@ const Gallery = () => {
               className="flex items-center gap-2"
             >
               <Video className="w-4 h-4" />
-              Vidéos ({items.filter(item => item.type === 'video').length})
+              Videos ({items.filter(item => item.type === 'video').length})
             </Button>
           </div>
         </div>

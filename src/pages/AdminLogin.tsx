@@ -36,22 +36,22 @@ const AdminLogin = () => {
 
         if (adminError || !adminData) {
           await supabase.auth.signOut();
-          throw new Error("Accès non autorisé. Vous n'êtes pas administrateur.");
+          throw new Error("Unauthorized access. You are not an administrator.");
         }
 
         toast({
-          title: "Connexion réussie",
-          description: `Bienvenue ${adminData.name}`,
+          title: "Login successful",
+          description: `Welcome ${adminData.name}`,
         });
 
         navigate('/admin');
       }
     } catch (error: any) {
-      toast({
-        title: "Erreur de connexion",
-        description: error.message,
-        variant: "destructive",
-      });
+        toast({
+          title: "Login error",
+          description: error.message,
+          variant: "destructive",
+        });
     } finally {
       setLoading(false);
     }
@@ -64,17 +64,17 @@ const AdminLogin = () => {
       <Card className="w-full max-w-md relative z-10">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold text-foreground">
-            Administration AEESTR
+            AEESTR Administration
           </CardTitle>
           <p className="text-muted-foreground">
-            Connectez-vous pour accéder au tableau de bord
+            Login to access the dashboard
           </p>
         </CardHeader>
         
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <Label htmlFor="email">Email administrateur</Label>
+              <Label htmlFor="email">Administrator Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -86,7 +86,7 @@ const AdminLogin = () => {
             </div>
             
             <div>
-              <Label htmlFor="password">Mot de passe</Label>
+              <Label htmlFor="password">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -102,7 +102,7 @@ const AdminLogin = () => {
               className="w-full bg-gradient-hero hover:opacity-90" 
               disabled={loading}
             >
-              {loading ? "Connexion..." : "Se connecter"}
+              {loading ? "Logging in..." : "Login"}
             </Button>
           </form>
         </CardContent>

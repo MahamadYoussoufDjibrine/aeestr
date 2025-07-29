@@ -60,7 +60,7 @@ const Footer = () => {
                   onClick={() => scrollToSection('gallery')}
                   className="text-white/80 hover:text-white transition-colors duration-300"
                 >
-                  Galerie
+                  Gallery
                 </button>
               </li>
               <li>

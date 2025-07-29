@@ -4,23 +4,23 @@ const About = () => {
   const features = [
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Communauté Unie",
-      description: "Rassembler tous les étudiants tchadiens au Rwanda dans une communauté solidaire et bienveillante."
+      title: "United Community",
+      description: "Bringing together all Chadian students in Rwanda in a supportive and caring community."
     },
     {
       icon: <Target className="w-8 h-8" />,
-      title: "Objectifs Clairs",
-      description: "Soutenir la réussite académique et l'intégration sociale de nos membres dans leur parcours éducatif."
+      title: "Clear Objectives",
+      description: "Supporting the academic success and social integration of our members in their educational journey."
     },
     {
       icon: <Heart className="w-8 h-8" />,
-      title: "Entraide Mutuelle",
-      description: "Promouvoir l'entraide entre étudiants pour surmonter ensemble les défis de la vie étudiante."
+      title: "Mutual Support",
+      description: "Promoting mutual aid among students to overcome the challenges of student life together."
     },
     {
       icon: <BookOpen className="w-8 h-8" />,
-      title: "Excellence Académique",
-      description: "Encourager l'excellence dans les études et offrir un accompagnement personnalisé."
+      title: "Academic Excellence",
+      description: "Encouraging excellence in studies and offering personalized support."
     }
   ];
 
@@ -29,14 +29,14 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            À Propos d'<span className="text-primary">AEESTR</span>
+            About <span className="text-primary">AEESTR</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-hero mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            L'Association des Étudiants et Élèves Stagiaires Tchadiens au Rwanda (AEESTR) 
-            est une organisation dédiée au bien-être et à la réussite de la communauté étudiante 
-            tchadienne poursuivant leurs études au Rwanda. Nous servons de pont entre les cultures 
-            et facilitons l'intégration académique et sociale de nos membres.
+            The Association of Chadian Students and Trainees in Rwanda (AEESTR) 
+            is an organization dedicated to the well-being and success of the Chadian student 
+            community pursuing their studies in Rwanda. We serve as a bridge between cultures 
+            and facilitate the academic and social integration of our members.
           </p>
         </div>
         
@@ -58,38 +58,38 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
               <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
-                Notre Vision pour l'Avenir
+                Our Vision for the Future
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Nous aspirons à créer un écosystème éducatif où chaque étudiant tchadien au Rwanda 
-                peut s'épanouir pleinement, développer son potentiel et contribuer positivement 
-                au développement de nos deux nations.
+                We aspire to create an educational ecosystem where every Chadian student in Rwanda 
+                can flourish fully, develop their potential and contribute positively 
+                to the development of our two nations.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                À travers nos programmes et initiatives, nous bâtissons des ponts durables entre 
-                le Tchad et le Rwanda, favorisant les échanges culturels et académiques pour 
-                un avenir meilleur.
+                Through our programs and initiatives, we build lasting bridges between 
+                Chad and Rwanda, fostering cultural and academic exchanges for 
+                a better future.
               </p>
             </div>
             <div className="animate-slide-in-right">
               <div className="bg-white p-8 rounded-2xl shadow-card">
-                <h4 className="text-xl font-semibold mb-4 text-primary">Nos Valeurs Fondamentales</h4>
+                <h4 className="text-xl font-semibold mb-4 text-primary">Our Core Values</h4>
                 <ul className="space-y-3 text-muted-foreground">
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    Solidarité et entraide mutuelle
+                    Solidarity and mutual support
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                    Excellence académique et professionnelle
+                    Academic and professional excellence
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    Respect de la diversité culturelle
+                    Respect for cultural diversity
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                    Intégrité et transparence
+                    Integrity and transparency
                   </li>
                 </ul>
               </div>
