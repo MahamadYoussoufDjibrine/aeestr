@@ -69,7 +69,7 @@ const Gallery = () => {
             Our <span className="text-secondary">Gallery</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-hero mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-black font-bold max-w-4xl mx-auto leading-relaxed">
             Discover our activities, events and memorable moments through photos and videos. 
             Chaque image raconte l'histoire de notre communauté dynamique.
           </p>
@@ -161,12 +161,12 @@ const Gallery = () => {
                     {item.title}
                   </h3>
                   {item.description && (
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                    <p className="text-black font-semibold text-sm mb-4 line-clamp-2">
                       {item.description}
                     </p>
                   )}
                   
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-black font-semibold">
                     <span>{new Date(item.upload_date).toLocaleDateString('fr-FR')}</span>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ const Gallery = () => {
               <ImageIcon className="w-8 h-8 text-primary" />
             </div>
             <h3 className="text-xl font-semibold mb-2 text-foreground">Aucun contenu trouvé</h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-black font-semibold mb-6">
               {filter === 'all' 
                 ? "La galerie est vide. Soyez le premier à partager du contenu !"
                 : `Aucun ${filter === 'image' ? 'photo' : 'vidéo'} trouvée.`
@@ -218,9 +218,9 @@ const Gallery = () => {
                   />
                 )}
                 {selectedItem.description && (
-                  <p className="mt-4 text-muted-foreground">{selectedItem.description}</p>
+                  <p className="mt-4 text-black font-semibold">{selectedItem.description}</p>
                 )}
-                <p className="text-sm text-muted-foreground mt-2">
+                <p className="text-sm text-black font-semibold mt-2">
                   Uploadé le {new Date(selectedItem.upload_date).toLocaleDateString('fr-FR')}
                 </p>
               </div>

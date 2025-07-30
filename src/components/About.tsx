@@ -32,7 +32,7 @@ const About = () => {
             About <span className="text-primary">AEESTR</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-hero mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-black font-bold max-w-4xl mx-auto leading-relaxed">
             The Association of Chadian Students and Trainees in Rwanda (AEESTR) 
             is an organization dedicated to the well-being and success of the Chadian student 
             community pursuing their studies in Rwanda. We serve as a bridge between cultures 
@@ -49,7 +49,7 @@ const About = () => {
             >
               <div className="text-primary mb-4">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-3 text-card-foreground">{feature.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+              <p className="text-black font-semibold leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -60,12 +60,12 @@ const About = () => {
               <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
                 Our Vision for the Future
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-black font-semibold leading-relaxed mb-6">
                 We aspire to create an educational ecosystem where every Chadian student in Rwanda 
                 can flourish fully, develop their potential and contribute positively 
                 to the development of our two nations.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-black font-semibold leading-relaxed">
                 Through our programs and initiatives, we build lasting bridges between 
                 Chad and Rwanda, fostering cultural and academic exchanges for 
                 a better future.
@@ -74,7 +74,7 @@ const About = () => {
             <div className="animate-slide-in-right">
               <div className="bg-white p-8 rounded-2xl shadow-card">
                 <h4 className="text-xl font-semibold mb-4 text-primary">Our Core Values</h4>
-                <ul className="space-y-3 text-muted-foreground">
+                <ul className="space-y-3 text-black font-semibold">
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     Solidarity and mutual support

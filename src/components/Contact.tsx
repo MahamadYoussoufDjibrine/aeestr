@@ -90,7 +90,7 @@ const Contact = () => {
             Contact <span className="text-primary">Us</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-hero mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-black font-bold max-w-4xl mx-auto leading-relaxed">
             We are here to help you! Don't hesitate to contact us for any questions, 
             suggestions or assistance requests.
           </p>
@@ -109,8 +109,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">Official Email</h4>
-                    <p className="text-muted-foreground">aeestr235@gmail.com</p>
-                    <p className="text-muted-foreground">contact@aeestr.org</p>
+                    <p className="text-black font-semibold">aeestr235@gmail.com</p>
+                    <p className="text-black font-semibold">contact@aeestr.org</p>
                   </div>
                 </div>
               </Card>
@@ -122,8 +122,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">Phone</h4>
-                    <p className="text-muted-foreground">+250790134730</p>
-                    <p className="text-sm text-muted-foreground">Available Monday to Friday, 8am-6pm</p>
+                    <p className="text-black font-semibold">+250790134730</p>
+                    <p className="text-sm text-black font-semibold">Available Monday to Friday, 8am-6pm</p>
                   </div>
                 </div>
               </Card>
@@ -135,8 +135,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">Address</h4>
-                    <p className="text-muted-foreground">Kigali, Rwanda</p>
-                    <p className="text-sm text-muted-foreground">Full address available upon request</p>
+                    <p className="text-black font-semibold">Kigali, Rwanda</p>
+                    <p className="text-sm text-black font-semibold">Full address available upon request</p>
                   </div>
                 </div>
               </Card>
@@ -146,16 +146,16 @@ const Contact = () => {
               <h4 className="font-semibold text-foreground mb-3">Office Hours</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Monday - Friday</span>
-                  <span className="text-foreground font-medium">8:00 AM - 6:00 PM</span>
+                  <span className="text-black font-semibold">Monday - Friday</span>
+                  <span className="text-foreground font-bold">8:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Saturday</span>
-                  <span className="text-foreground font-medium">9:00 AM - 2:00 PM</span>
+                  <span className="text-black font-semibold">Saturday</span>
+                  <span className="text-foreground font-bold">9:00 AM - 2:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Sunday</span>
-                  <span className="text-foreground font-medium">Closed</span>
+                  <span className="text-black font-semibold">Sunday</span>
+                  <span className="text-foreground font-bold">Closed</span>
                 </div>
               </div>
             </div>
@@ -227,7 +227,7 @@ const Contact = () => {
               </form>
 
               <div className="mt-6 p-4 bg-aeestr-blue-light rounded-lg">
-                <p className="text-sm text-muted-foreground text-center">
+                <p className="text-sm text-black font-semibold text-center">
                   * Required fields. We commit to responding within 24 hours.
                 </p>
               </div>

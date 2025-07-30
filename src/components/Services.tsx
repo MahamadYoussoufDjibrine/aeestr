@@ -48,7 +48,7 @@ const Services = () => {
             Our <span className="text-primary">Services</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-hero mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-black font-bold max-w-4xl mx-auto leading-relaxed">
             AEESTR offers a comprehensive range of services to support Chadian students 
             in their academic journey and social integration in Rwanda.
           </p>
@@ -65,13 +65,13 @@ const Services = () => {
                 {service.icon}
               </div>
               <h3 className="text-xl font-semibold mb-4 text-foreground">{service.title}</h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
+              <p className="text-black font-semibold mb-6 leading-relaxed">{service.description}</p>
               
               <div className="space-y-2">
                 {service.features.map((feature, featureIndex) => (
                   <div key={featureIndex} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                    <span className="text-sm text-muted-foreground">{feature}</span>
+                    <span className="text-sm text-black font-semibold">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -84,7 +84,7 @@ const Services = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
               Need Personalized Assistance?
             </h3>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-black font-semibold mb-8 max-w-2xl mx-auto leading-relaxed">
               Our team is available to help you with your specific needs. 
               Don't hesitate to contact us for a personalized consultation.
             </p>
