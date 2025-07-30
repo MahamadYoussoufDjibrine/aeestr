@@ -80,7 +80,7 @@ const AdminLogin = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@aeestr.org"
+                placeholder="mhdoka48@gmail.com"
                 required
               />
             </div>

@@ -94,14 +94,14 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 mt-0.5 text-secondary" />
                 <div>
+                  <p className="text-white/80">aeestr235@gmail.com</p>
                   <p className="text-white/80">contact@aeestr.org</p>
-                  <p className="text-white/80">info@aeestr.org</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 mt-0.5 text-secondary" />
                 <div>
-                  <p className="text-white/80">+250 XXX XXX XXX</p>
+                  <p className="text-white/80">+250790134730</p>
                   <p className="text-sm text-white/60">Lun-Ven: 8h-18h</p>
                 </div>
               </div>

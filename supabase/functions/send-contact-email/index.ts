@@ -29,7 +29,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email to AEESTR
     const emailResponse = await resend.emails.send({
       from: "AEESTR Contact <onboarding@resend.dev>",
-      to: ["contact@aeestr.org"], // AEESTR's email
+      to: ["aeestr235@gmail.com"], // AEESTR's email
       subject: `Nouveau message de contact - ${name}`,
       html: `
         <h2>Nouveau message de contact reçu</h2>
