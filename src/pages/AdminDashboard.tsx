@@ -130,7 +130,7 @@ const AdminDashboard = () => {
         .insert([{
           title: uploadForm.title,
           description: uploadForm.description,
-          type: uploadForm.type,
+          type: uploadForm.type === 'image' ? 'photo' : uploadForm.type,
           url: publicUrl,
           file_name: fileName,
           file_size: file.size
