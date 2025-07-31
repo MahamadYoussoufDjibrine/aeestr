@@ -11,7 +11,7 @@ interface GalleryItem {
   id: string;
   title: string;
   description?: string;
-  type: 'image' | 'video';
+  type: 'photo' | 'video';
   url: string;
   thumbnail?: string;
   upload_date: string;
@@ -19,7 +19,7 @@ interface GalleryItem {
 
 const Gallery = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
-  const [filter, setFilter] = useState<'all' | 'image' | 'video'>('all');
+  const [filter, setFilter] = useState<'all' | 'photo' | 'video'>('all');
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
   // Load gallery items from database
@@ -41,7 +41,7 @@ const Gallery = () => {
         id: item.id,
         title: item.title,
         description: item.description,
-        type: item.type as 'image' | 'video',
+        type: item.type as 'photo' | 'video',
         url: item.url,
         thumbnail: item.thumbnail,
         upload_date: item.upload_date
@@ -87,12 +87,12 @@ const Gallery = () => {
               Tout voir ({items.length})
             </Button>
             <Button
-              variant={filter === 'image' ? 'default' : 'outline'}
-              onClick={() => setFilter('image')}
+              variant={filter === 'photo' ? 'default' : 'outline'}
+              onClick={() => setFilter('photo')}
               className="flex items-center gap-2"
             >
               <ImageIcon className="w-4 h-4" />
-              Photos ({items.filter(item => item.type === 'image').length})
+              Photos ({items.filter(item => item.type === 'photo').length})
             </Button>
             <Button
               variant={filter === 'video' ? 'default' : 'outline'}
@@ -116,7 +116,7 @@ const Gallery = () => {
                 onClick={() => setSelectedItem(item)}
               >
                 <div className="relative overflow-hidden">
-                  {item.type === 'image' ? (
+                  {item.type === 'photo' ? (
                     <img 
                       src={item.url} 
                       alt={item.title}
@@ -182,7 +182,7 @@ const Gallery = () => {
             <p className="text-black font-semibold mb-6">
               {filter === 'all' 
                 ? "La galerie est vide. Soyez le premier à partager du contenu !"
-                : `Aucun ${filter === 'image' ? 'photo' : 'vidéo'} trouvée.`
+                : `Aucun ${filter === 'photo' ? 'photo' : 'vidéo'} trouvée.`
               }
             </p>
           </div>
@@ -204,7 +204,7 @@ const Gallery = () => {
                 </Button>
               </DialogHeader>
               <div className="mt-4">
-                {selectedItem.type === 'image' ? (
+                {selectedItem.type === 'photo' ? (
                   <img 
                     src={selectedItem.url} 
                     alt={selectedItem.title}
