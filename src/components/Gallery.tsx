@@ -25,6 +25,39 @@ const Gallery = () => {
   // Load gallery items from database
   useEffect(() => {
     loadGalleryItems();
+    
+    // Set up real-time subscription for new gallery items
+    const channel = supabase
+      .channel('gallery-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'gallery'
+        },
+        (payload) => {
+          const newItem = {
+            id: payload.new.id,
+            title: payload.new.title,
+            description: payload.new.description,
+            type: payload.new.type as 'photo' | 'video',
+            url: payload.new.url,
+            thumbnail: payload.new.thumbnail,
+            upload_date: payload.new.upload_date
+          };
+          setItems(prevItems => [newItem, ...prevItems]);
+          toast({
+            title: "Nouveau contenu ajouté",
+            description: `${newItem.title} a été ajouté à la galerie.`
+          });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const loadGalleryItems = async () => {
