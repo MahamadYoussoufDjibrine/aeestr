@@ -301,7 +301,7 @@ const AdminDashboard = () => {
                           className="flex-1"
                         >
                           <ImageIcon className="w-4 h-4 mr-2" />
-                          Image
+                          Photo
                         </Button>
                         <Button
                           type="button"
