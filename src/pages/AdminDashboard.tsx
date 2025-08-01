@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Upload, Plus, Trash2, LogOut, Image as ImageIcon, Video, Play, Edit } from "lucide-react";
+import { Upload, Plus, Trash2, LogOut, Image as ImageIcon, Video, Play, Edit, Home } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -77,7 +77,7 @@ const AdminDashboard = () => {
         id: item.id,
         title: item.title,
         description: item.description,
-        type: item.type as 'image' | 'video',
+        type: (item.type === 'photo' ? 'image' : item.type) as 'image' | 'video',
         url: item.url,
         thumbnail: item.thumbnail,
         upload_date: item.upload_date
@@ -215,14 +215,24 @@ const AdminDashboard = () => {
             <h1 className="text-2xl font-bold">AEESTR Dashboard</h1>
             <p className="text-white/80">Welcome, {adminName}</p>
           </div>
-          <Button
-            variant="ghost"
-            onClick={handleLogout}
-            className="text-white hover:bg-white/20"
-          >
-            <LogOut className="w-4 h-4 mr-2" />
-            Logout
-          </Button>
+          <div className="flex gap-2">
+            <Button
+              variant="ghost"
+              onClick={() => navigate('/')}
+              className="text-white hover:bg-white/20"
+            >
+              <Home className="w-4 h-4 mr-2" />
+              Back to Home
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={handleLogout}
+              className="text-white hover:bg-white/20"
+            >
+              <LogOut className="w-4 h-4 mr-2" />
+              Logout
+            </Button>
+          </div>
         </div>
       </header>
 
