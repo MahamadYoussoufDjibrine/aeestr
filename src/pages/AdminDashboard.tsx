@@ -30,6 +30,7 @@ const AdminDashboard = () => {
     description: '',
     type: 'image' as 'image' | 'video'
   });
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [adminName, setAdminName] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -145,6 +146,7 @@ const AdminDashboard = () => {
 
       // Reset form and reload gallery
       setUploadForm({ title: '', description: '', type: 'image' });
+      setSelectedFile(null);
       setIsDialogOpen(false);
       loadGalleryItems();
 
@@ -322,7 +324,7 @@ const AdminDashboard = () => {
                         accept={uploadForm.type === 'image' ? 'image/*' : 'video/*'}
                         onChange={(e) => {
                           const file = e.target.files?.[0];
-                          if (file) handleFileUpload(file);
+                          if (file) setSelectedFile(file);
                         }}
                         className="hidden"
                       />
@@ -331,11 +333,24 @@ const AdminDashboard = () => {
                         onClick={() => fileInputRef.current?.click()}
                         disabled={isUploading}
                         className="w-full"
+                        variant="outline"
                       >
                         <Upload className="w-4 h-4 mr-2" />
-                        {isUploading ? 'Uploading...' : `Choose ${uploadForm.type === 'image' ? 'an Image' : 'a Video'}`}
+                        {selectedFile ? selectedFile.name : `Choose ${uploadForm.type === 'image' ? 'a Photo' : 'a Video'}`}
                       </Button>
                     </div>
+
+                    {selectedFile && (
+                      <Button
+                        type="button"
+                        onClick={() => handleFileUpload(selectedFile)}
+                        disabled={isUploading}
+                        className="w-full bg-gradient-hero hover:opacity-90"
+                      >
+                        <Upload className="w-4 h-4 mr-2" />
+                        {isUploading ? 'Uploading...' : 'Upload to Gallery'}
+                      </Button>
+                    )}
                   </div>
                 </DialogContent>
               </Dialog>
