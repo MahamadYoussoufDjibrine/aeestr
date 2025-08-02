@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import aeestrLogo from "@/assets/aeestr-logo.png";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navigation = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -23,11 +26,11 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { label: "Accueil", section: "home" },
-    { label: "À Propos", section: "about" },
-    { label: "Services", section: "services" },
-    { label: "Gallery", section: "gallery" },
-    { label: "Contact", section: "contact" }
+    { label: t("nav.home"), section: "home" },
+    { label: t("nav.about"), section: "about" },
+    { label: t("nav.services"), section: "services" },
+    { label: t("nav.gallery"), section: "gallery" },
+    { label: t("nav.contact"), section: "contact" }
   ];
 
   return (
@@ -62,6 +65,7 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,6 +92,9 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
+              <div className="pt-2 border-t border-border">
+                <LanguageSwitcher />
+              </div>
             </div>
           </div>
         )}

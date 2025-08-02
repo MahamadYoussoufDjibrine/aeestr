@@ -1,42 +1,39 @@
+import { useTranslation } from "react-i18next";
 import { GraduationCap, Users2, Calendar, Briefcase, Globe, Handshake } from "lucide-react";
 
 const Services = () => {
+  const { t } = useTranslation();
+  
   const services = [
     {
       icon: <GraduationCap className="w-10 h-10" />,
-      title: "Academic Support",
-      description: "Tutoring, study groups, and sharing educational resources to improve your academic performance.",
-      features: ["Tutoring sessions", "Study groups", "Educational resources", "Personalized support"]
+      title: t("services.academic_support.title"),
+      description: t("services.academic_support.description")
     },
     {
       icon: <Users2 className="w-10 h-10" />,
-      title: "Social Integration",
-      description: "Facilitating your adaptation to Rwandan life and creating lasting connections with the local community.",
-      features: ["Welcome activities", "Student mentorship", "Cultural exchanges", "Social network"]
+      title: t("services.mentorship.title"),
+      description: t("services.mentorship.description")
     },
     {
       icon: <Calendar className="w-10 h-10" />,
-      title: "Cultural Events",
-      description: "Organizing events to celebrate our Chadian heritage and discover Rwandan culture.",
-      features: ["Traditional celebrations", "Cultural evenings", "Conferences", "Festivals"]
+      title: t("services.cultural_events.title"),
+      description: t("services.cultural_events.description")
     },
     {
       icon: <Briefcase className="w-10 h-10" />,
-      title: "Career Guidance",
-      description: "Career advice, internships, and job opportunities in Rwanda and Chad.",
-      features: ["Career counseling", "Internship search", "Professional networking", "CV workshops"]
+      title: t("services.career_guidance.title"),
+      description: t("services.career_guidance.description")
     },
     {
       icon: <Globe className="w-10 h-10" />,
-      title: "Administrative Assistance",
-      description: "Help with administrative procedures, visas, housing, and other official formalities.",
-      features: ["Visa/permit assistance", "Housing search", "Legal procedures", "Administrative guidance"]
+      title: t("services.emergency_support.title"),
+      description: t("services.emergency_support.description")
     },
     {
       icon: <Handshake className="w-10 h-10" />,
-      title: "Mediation and Support",
-      description: "Conflict mediation and psychological support for your general well-being.",
-      features: ["Conflict mediation", "Psychological support", "Personal counseling", "Emergency assistance"]
+      title: t("services.networking.title"),
+      description: t("services.networking.description")
     }
   ];
 
@@ -45,12 +42,11 @@ const Services = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Our <span className="text-primary">Services</span>
+            {t("services.title")}
           </h2>
           <div className="w-24 h-1 bg-gradient-hero mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-black font-bold max-w-4xl mx-auto leading-relaxed">
-            AEESTR offers a comprehensive range of services to support Chadian students 
-            in their academic journey and social integration in Rwanda.
+            {t("services.description")}
           </p>
         </div>
         
@@ -65,16 +61,7 @@ const Services = () => {
                 {service.icon}
               </div>
               <h3 className="text-xl font-semibold mb-4 text-foreground">{service.title}</h3>
-              <p className="text-black font-semibold mb-6 leading-relaxed">{service.description}</p>
-              
-              <div className="space-y-2">
-                {service.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                    <span className="text-sm text-black font-semibold">{feature}</span>
-                  </div>
-                ))}
-              </div>
+              <p className="text-black font-semibold leading-relaxed">{service.description}</p>
             </div>
           ))}
         </div>

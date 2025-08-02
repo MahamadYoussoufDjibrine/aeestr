@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* RTL Support for Arabic */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .animate-slide-in-left {
+  animation: slideInRight 0.6s ease-out;
+}
+
+[dir="rtl"] .animate-slide-in-right {
+  animation: slideInLeft 0.6s ease-out;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */

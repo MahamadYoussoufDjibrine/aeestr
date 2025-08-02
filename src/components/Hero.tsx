@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
+  const { t } = useTranslation();
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -14,15 +17,16 @@ const Hero = () => {
       <div className="container mx-auto px-4 text-center text-white relative z-10">
         <div className="animate-fade-in-up">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Welcome to <span className="text-primary-glow">AEESTR</span>
+            {t("hero.welcome")} <span className="text-primary-glow">AEESTR</span>
           </h1>
           <h2 className="text-xl md:text-2xl lg:text-3xl mb-8 text-white/90 font-light">
-            Association of Chadian Students and Trainees<br />
-            in Rwanda
+            {t("hero.association_name")}
           </h2>
-          <p className="text-lg md:text-xl mb-12 max-w-3xl mx-auto text-white/80 leading-relaxed">
-            Our mission is to create a strong bridge between Chadian students in Rwanda, 
-            providing academic, social and cultural support for your success.
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-white/80 leading-relaxed font-medium">
+            {t("hero.tagline")}
+          </p>
+          <p className="text-base md:text-lg mb-12 max-w-3xl mx-auto text-white/70 leading-relaxed">
+            {t("hero.description")}
           </p>
           
           <div className="flex justify-center items-center mb-16">
@@ -31,7 +35,7 @@ const Hero = () => {
               className="bg-white text-secondary hover:bg-white/90 shadow-hero px-8 py-4 text-lg font-semibold"
               onClick={() => scrollToSection('about')}
             >
-              Discover our mission
+              {t("hero.discover_mission")}
             </Button>
           </div>
         </div>

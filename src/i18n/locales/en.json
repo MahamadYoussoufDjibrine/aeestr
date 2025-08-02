@@ -1,0 +1,159 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "hero": {
+    "welcome": "Welcome to",
+    "association_name": "Association of Chadian Students and Trainees in Rwanda",
+    "tagline": "Bridging cultures, empowering futures",
+    "description": "We are a vibrant community of Chadian students and trainees in Rwanda, dedicated to academic excellence, cultural exchange, and mutual support.",
+    "discover_mission": "Discover our mission",
+    "scroll_down": "Scroll down to explore"
+  },
+  "about": {
+    "title": "About AEESTR",
+    "description": "The Association of Chadian Students and Trainees in Rwanda (AEESTR) is a vibrant community dedicated to fostering academic excellence, cultural exchange, and mutual support among Chadian students pursuing their education in Rwanda.",
+    "community": {
+      "title": "Community Support",
+      "description": "A strong network of peers providing academic and social support"
+    },
+    "cultural": {
+      "title": "Cultural Exchange",
+      "description": "Promoting understanding between Chadian and Rwandan cultures"
+    },
+    "academic": {
+      "title": "Academic Excellence",
+      "description": "Supporting members in achieving their educational goals"
+    },
+    "development": {
+      "title": "Professional Development",
+      "description": "Preparing students for successful careers and leadership roles"
+    },
+    "vision_title": "Our Vision for the Future",
+    "vision_description": "We envision a future where Chadian students in Rwanda become bridges between our nations, contributing to development, peace, and prosperity in both Chad and Rwanda through education, innovation, and cultural understanding.",
+    "values_title": "Our Core Values",
+    "values": {
+      "unity": "Unity in diversity",
+      "excellence": "Academic excellence",
+      "integrity": "Integrity and transparency",
+      "solidarity": "Mutual solidarity",
+      "respect": "Cultural respect"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "Comprehensive support services for Chadian students and trainees",
+    "academic_support": {
+      "title": "Academic Support",
+      "description": "Tutoring, study groups, and academic guidance to help students excel in their studies"
+    },
+    "mentorship": {
+      "title": "Mentorship Program",
+      "description": "Connecting new students with experienced members for guidance and support"
+    },
+    "cultural_events": {
+      "title": "Cultural Events",
+      "description": "Organizing events to celebrate Chadian culture and promote cultural exchange"
+    },
+    "career_guidance": {
+      "title": "Career Guidance",
+      "description": "Professional development workshops and career counseling services"
+    },
+    "emergency_support": {
+      "title": "Emergency Support",
+      "description": "Financial and emotional support for members facing unexpected challenges"
+    },
+    "networking": {
+      "title": "Networking Opportunities",
+      "description": "Building connections within the professional and academic community"
+    }
+  },
+  "gallery": {
+    "title": "Gallery",
+    "description": "Moments and memories from our community activities",
+    "no_media": "No media available at the moment. Check back later!",
+    "admin_panel": "Admin Panel"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in Touch",
+    "description": "Have questions or want to join our community? We'd love to hear from you.",
+    "form": {
+      "name": "Full Name",
+      "name_placeholder": "Your full name",
+      "email": "Email Address",
+      "email_placeholder": "your.email@example.com",
+      "subject": "Subject",
+      "subject_placeholder": "What is this about?",
+      "message": "Message",
+      "message_placeholder": "Tell us more about your inquiry...",
+      "send": "Send Message",
+      "sending": "Sending..."
+    },
+    "info": {
+      "reach_out": "Reach Out to Us",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "follow": "Follow Us"
+    },
+    "success": "Thank you for your message! We'll get back to you soon.",
+    "error": "Failed to send message. Please try again."
+  },
+  "footer": {
+    "description": "Empowering Chadian students in Rwanda through unity, education, and cultural exchange.",
+    "quick_links": "Quick Links",
+    "contact_info": "Contact Info",
+    "follow_us": "Follow Us",
+    "rights": "All rights reserved.",
+    "admin_login": "Admin Login"
+  },
+  "admin": {
+    "login": {
+      "title": "Admin Login",
+      "subtitle": "Access the administrative dashboard",
+      "email": "Email",
+      "password": "Password",
+      "sign_in": "Sign In",
+      "signing_in": "Signing in...",
+      "error": "Invalid credentials. Please try again.",
+      "back_home": "Back to Home"
+    },
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "subtitle": "Manage gallery content",
+      "upload_section": "Upload New Media",
+      "select_files": "Select Files",
+      "upload": "Upload",
+      "uploading": "Uploading...",
+      "gallery_management": "Gallery Management",
+      "delete": "Delete",
+      "deleting": "Deleting...",
+      "confirm_delete": "Are you sure you want to delete this item?",
+      "upload_success": "Media uploaded successfully!",
+      "upload_error": "Failed to upload media. Please try again.",
+      "delete_success": "Media deleted successfully!",
+      "delete_error": "Failed to delete media. Please try again.",
+      "logout": "Logout",
+      "no_media": "No media uploaded yet."
+    }
+  },
+  "language": {
+    "english": "English",
+    "french": "Français",
+    "arabic": "العربية",
+    "switch_language": "Switch Language"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close"
+  }
+}

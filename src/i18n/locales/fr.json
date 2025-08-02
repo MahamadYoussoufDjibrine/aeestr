@@ -1,0 +1,159 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "services": "Services",
+    "gallery": "Galerie",
+    "contact": "Contact"
+  },
+  "hero": {
+    "welcome": "Bienvenue à",
+    "association_name": "Association des Étudiants et Stagiaires Tchadiens au Rwanda",
+    "tagline": "Unir les cultures, autonomiser l'avenir",
+    "description": "Nous sommes une communauté dynamique d'étudiants et stagiaires tchadiens au Rwanda, dédiée à l'excellence académique, aux échanges culturels et au soutien mutuel.",
+    "discover_mission": "Découvrir notre mission",
+    "scroll_down": "Faites défiler pour explorer"
+  },
+  "about": {
+    "title": "À Propos d'AEESTR",
+    "description": "L'Association des Étudiants et Stagiaires Tchadiens au Rwanda (AEESTR) est une communauté dynamique dédiée à favoriser l'excellence académique, l'échange culturel et le soutien mutuel parmi les étudiants tchadiens poursuivant leurs études au Rwanda.",
+    "community": {
+      "title": "Soutien Communautaire",
+      "description": "Un réseau solide de pairs offrant un soutien académique et social"
+    },
+    "cultural": {
+      "title": "Échange Culturel",
+      "description": "Promouvoir la compréhension entre les cultures tchadienne et rwandaise"
+    },
+    "academic": {
+      "title": "Excellence Académique",
+      "description": "Soutenir les membres dans l'atteinte de leurs objectifs éducatifs"
+    },
+    "development": {
+      "title": "Développement Professionnel",
+      "description": "Préparer les étudiants à des carrières réussies et des rôles de leadership"
+    },
+    "vision_title": "Notre Vision pour l'Avenir",
+    "vision_description": "Nous envisageons un avenir où les étudiants tchadiens au Rwanda deviennent des ponts entre nos nations, contribuant au développement, à la paix et à la prospérité au Tchad et au Rwanda grâce à l'éducation, l'innovation et la compréhension culturelle.",
+    "values_title": "Nos Valeurs Fondamentales",
+    "values": {
+      "unity": "Unité dans la diversité",
+      "excellence": "Excellence académique",
+      "integrity": "Intégrité et transparence",
+      "solidarity": "Solidarité mutuelle",
+      "respect": "Respect culturel"
+    }
+  },
+  "services": {
+    "title": "Nos Services",
+    "description": "Services de soutien complets pour les étudiants et stagiaires tchadiens",
+    "academic_support": {
+      "title": "Soutien Académique",
+      "description": "Tutorat, groupes d'étude et orientation académique pour aider les étudiants à exceller"
+    },
+    "mentorship": {
+      "title": "Programme de Mentorat",
+      "description": "Connecter les nouveaux étudiants avec des membres expérimentés pour guidance et soutien"
+    },
+    "cultural_events": {
+      "title": "Événements Culturels",
+      "description": "Organiser des événements pour célébrer la culture tchadienne et promouvoir l'échange culturel"
+    },
+    "career_guidance": {
+      "title": "Orientation Professionnelle",
+      "description": "Ateliers de développement professionnel et services de conseil en carrière"
+    },
+    "emergency_support": {
+      "title": "Soutien d'Urgence",
+      "description": "Soutien financier et émotionnel pour les membres face à des défis inattendus"
+    },
+    "networking": {
+      "title": "Opportunités de Réseautage",
+      "description": "Construire des connexions au sein de la communauté professionnelle et académique"
+    }
+  },
+  "gallery": {
+    "title": "Galerie",
+    "description": "Moments et souvenirs de nos activités communautaires",
+    "no_media": "Aucun média disponible pour le moment. Revenez plus tard !",
+    "admin_panel": "Panneau d'Administration"
+  },
+  "contact": {
+    "title": "Nous Contacter",
+    "subtitle": "Entrer en Contact",
+    "description": "Avez-vous des questions ou souhaitez-vous rejoindre notre communauté ? Nous aimerions vous entendre.",
+    "form": {
+      "name": "Nom Complet",
+      "name_placeholder": "Votre nom complet",
+      "email": "Adresse Email",
+      "email_placeholder": "votre.email@exemple.com",
+      "subject": "Sujet",
+      "subject_placeholder": "De quoi s'agit-il ?",
+      "message": "Message",
+      "message_placeholder": "Parlez-nous plus de votre demande...",
+      "send": "Envoyer le Message",
+      "sending": "Envoi en cours..."
+    },
+    "info": {
+      "reach_out": "Contactez-Nous",
+      "email": "Email",
+      "phone": "Téléphone",
+      "address": "Adresse",
+      "follow": "Suivez-Nous"
+    },
+    "success": "Merci pour votre message ! Nous vous répondrons bientôt.",
+    "error": "Échec de l'envoi du message. Veuillez réessayer."
+  },
+  "footer": {
+    "description": "Autonomiser les étudiants tchadiens au Rwanda par l'unité, l'éducation et l'échange culturel.",
+    "quick_links": "Liens Rapides",
+    "contact_info": "Informations de Contact",
+    "follow_us": "Suivez-Nous",
+    "rights": "Tous droits réservés.",
+    "admin_login": "Connexion Admin"
+  },
+  "admin": {
+    "login": {
+      "title": "Connexion Admin",
+      "subtitle": "Accéder au tableau de bord administratif",
+      "email": "Email",
+      "password": "Mot de Passe",
+      "sign_in": "Se Connecter",
+      "signing_in": "Connexion en cours...",
+      "error": "Identifiants invalides. Veuillez réessayer.",
+      "back_home": "Retour à l'Accueil"
+    },
+    "dashboard": {
+      "title": "Tableau de Bord Admin",
+      "subtitle": "Gérer le contenu de la galerie",
+      "upload_section": "Télécharger de Nouveaux Médias",
+      "select_files": "Sélectionner les Fichiers",
+      "upload": "Télécharger",
+      "uploading": "Téléchargement...",
+      "gallery_management": "Gestion de la Galerie",
+      "delete": "Supprimer",
+      "deleting": "Suppression...",
+      "confirm_delete": "Êtes-vous sûr de vouloir supprimer cet élément ?",
+      "upload_success": "Média téléchargé avec succès !",
+      "upload_error": "Échec du téléchargement du média. Veuillez réessayer.",
+      "delete_success": "Média supprimé avec succès !",
+      "delete_error": "Échec de la suppression du média. Veuillez réessayer.",
+      "logout": "Déconnexion",
+      "no_media": "Aucun média téléchargé pour l'instant."
+    }
+  },
+  "language": {
+    "english": "English",
+    "french": "Français",
+    "arabic": "العربية",
+    "switch_language": "Changer de Langue"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "close": "Fermer"
+  }
+}
