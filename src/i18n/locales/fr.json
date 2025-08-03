@@ -70,6 +70,13 @@
     "networking": {
       "title": "Opportunités de Réseautage",
       "description": "Construire des connexions au sein de la communauté professionnelle et académique"
+    },
+    "assistance": {
+      "title": "Besoin d'une Assistance Personnalisée ?",
+      "description": "Notre équipe est disponible pour vous aider avec vos besoins spécifiques. N'hésitez pas à nous contacter pour une consultation personnalisée.",
+      "available_247": "Disponible 24h/24 et 7j/7",
+      "quick_response": "Réponse rapide",
+      "free_service": "Service gratuit"
     }
   },
   "gallery": {

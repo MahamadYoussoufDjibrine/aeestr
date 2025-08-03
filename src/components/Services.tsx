@@ -69,24 +69,23 @@ const Services = () => {
         <div className="mt-16 text-center">
           <div className="bg-gradient-card p-8 md:p-12 rounded-3xl shadow-soft">
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
-              Need Personalized Assistance?
+              {t('services.assistance.title')}
             </h3>
             <p className="text-black font-semibold mb-8 max-w-2xl mx-auto leading-relaxed">
-              Our team is available to help you with your specific needs. 
-              Don't hesitate to contact us for a personalized consultation.
+              {t('services.assistance.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <div className="bg-white p-4 rounded-xl flex items-center gap-3">
                 <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-foreground font-medium">Available 24/7</span>
+                <span className="text-foreground font-medium">{t('services.assistance.available_247')}</span>
               </div>
               <div className="bg-white p-4 rounded-xl flex items-center gap-3">
                 <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
-                <span className="text-foreground font-medium">Quick response</span>
+                <span className="text-foreground font-medium">{t('services.assistance.quick_response')}</span>
               </div>
               <div className="bg-white p-4 rounded-xl flex items-center gap-3">
                 <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-foreground font-medium">Free service</span>
+                <span className="text-foreground font-medium">{t('services.assistance.free_service')}</span>
               </div>
             </div>
           </div>

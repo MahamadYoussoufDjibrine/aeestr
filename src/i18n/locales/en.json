@@ -70,6 +70,13 @@
     "networking": {
       "title": "Networking Opportunities",
       "description": "Building connections within the professional and academic community"
+    },
+    "assistance": {
+      "title": "Need Personalized Assistance?",
+      "description": "Our team is available to help you with your specific needs. Don't hesitate to contact us for a personalized consultation.",
+      "available_247": "Available 24/7",
+      "quick_response": "Quick response",
+      "free_service": "Free service"
     }
   },
   "gallery": {
