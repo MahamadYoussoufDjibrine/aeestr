@@ -76,7 +76,20 @@
     "title": "Gallery",
     "description": "Moments and memories from our community activities",
     "no_media": "No media available at the moment. Check back later!",
-    "admin_panel": "Admin Panel"
+    "admin_panel": "Admin Panel",
+    "view_all": "View All",
+    "photos": "Photos",
+    "videos": "Videos",
+    "photo": "Photo",
+    "video": "Video",
+    "click_to_view": "Click to view more",
+    "no_content_found": "No content found",
+    "empty_gallery": "The gallery is empty. Be the first to share content!",
+    "no_media_type": "No {{type}} found.",
+    "uploaded_on": "Uploaded on {{date}}",
+    "new_content_added": "New content added",
+    "added_to_gallery": "has been added to the gallery",
+    "unable_to_load": "Unable to load gallery."
   },
   "contact": {
     "title": "Contact Us",
@@ -92,17 +105,26 @@
       "message": "Message",
       "message_placeholder": "Tell us more about your inquiry...",
       "send": "Send Message",
-      "sending": "Sending..."
+      "sending": "Sending...",
+      "send_message": "Send us a Message",
+      "fill_required_fields": "Please fill in all required fields.",
+      "required_fields_note": "* Required fields. We are available 24/7 to assist you."
     },
     "info": {
       "reach_out": "Reach Out to Us",
       "email": "Email",
       "phone": "Phone",
       "address": "Address",
-      "follow": "Follow Us"
+      "follow": "Follow Us",
+      "available_247": "Available 24/7",
+      "address_on_request": "Full address available upon request",
+      "availability": "Availability",
+      "every_day": "Every day",
+      "247": "24/7"
     },
     "success": "Thank you for your message! We'll get back to you soon.",
-    "error": "Failed to send message. Please try again."
+    "error": "Failed to send message. Please try again.",
+    "response_soon": "We will respond to you as soon as possible."
   },
   "footer": {
     "description": "Empowering Chadian students in Rwanda through unity, education, and cultural exchange.",
@@ -110,7 +132,10 @@
     "contact_info": "Contact Info",
     "follow_us": "Follow Us",
     "rights": "All rights reserved.",
-    "admin_login": "Admin Login"
+    "admin_login": "Admin Login",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_use": "Terms of Use",
+    "sitemap": "Sitemap"
   },
   "admin": {
     "login": {

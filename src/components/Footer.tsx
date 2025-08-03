@@ -1,6 +1,9 @@
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -16,8 +19,7 @@ const Footer = () => {
           <div className="animate-fade-in-up">
             <h3 className="text-2xl font-bold mb-6">AEESTR</h3>
             <p className="text-white/80 mb-6 leading-relaxed">
-              Association des Étudiants et Élèves Stagiaires Tchadiens au Rwanda. 
-              Nous accompagnons la réussite de notre communauté étudiante.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors duration-300">
@@ -37,14 +39,14 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <h4 className="text-lg font-semibold mb-6">Liens Rapides</h4>
+            <h4 className="text-lg font-semibold mb-6">{t('footer.quick_links')}</h4>
             <ul className="space-y-3">
               <li>
                 <button 
                   onClick={() => scrollToSection('about')}
                   className="text-white/80 hover:text-white transition-colors duration-300"
                 >
-                  À Propos
+                  {t('nav.about')}
                 </button>
               </li>
               <li>
@@ -52,7 +54,7 @@ const Footer = () => {
                   onClick={() => scrollToSection('services')}
                   className="text-white/80 hover:text-white transition-colors duration-300"
                 >
-                  Nos Services
+                  {t('nav.services')}
                 </button>
               </li>
               <li>
@@ -60,7 +62,7 @@ const Footer = () => {
                   onClick={() => scrollToSection('gallery')}
                   className="text-white/80 hover:text-white transition-colors duration-300"
                 >
-                  Gallery
+                  {t('nav.gallery')}
                 </button>
               </li>
               <li>
@@ -68,7 +70,7 @@ const Footer = () => {
                   onClick={() => scrollToSection('contact')}
                   className="text-white/80 hover:text-white transition-colors duration-300"
                 >
-                  Contact
+                  {t('nav.contact')}
                 </button>
               </li>
             </ul>
@@ -76,20 +78,20 @@ const Footer = () => {
 
           {/* Services */}
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <h4 className="text-lg font-semibold mb-6">Nos Services</h4>
+            <h4 className="text-lg font-semibold mb-6">{t('nav.services')}</h4>
             <ul className="space-y-3 text-white/80">
-              <li>Soutien Académique</li>
-              <li>Intégration Sociale</li>
-              <li>Événements Culturels</li>
-              <li>Orientation Professionnelle</li>
-              <li>Assistance Administrative</li>
-              <li>Médiation et Soutien</li>
+              <li>{t('services.academic_support.title')}</li>
+              <li>{t('services.mentorship.title')}</li>
+              <li>{t('services.cultural_events.title')}</li>
+              <li>{t('services.career_guidance.title')}</li>
+              <li>{t('services.emergency_support.title')}</li>
+              <li>{t('services.networking.title')}</li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            <h4 className="text-lg font-semibold mb-6">Contact</h4>
+            <h4 className="text-lg font-semibold mb-6">{t('footer.contact_info')}</h4>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 mt-0.5 text-secondary" />
@@ -102,14 +104,14 @@ const Footer = () => {
                 <Phone className="w-5 h-5 mt-0.5 text-secondary" />
                 <div>
                   <p className="text-white/80">+250790134730</p>
-                  <p className="text-sm text-white/60">Lun-Ven: 8h-18h</p>
+                  <p className="text-sm text-white/60">{t('contact.info.available_247')}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 text-secondary" />
                 <div>
                   <p className="text-white/80">Kigali, Rwanda</p>
-                  <p className="text-sm text-white/60">Adresse complète sur demande</p>
+                  <p className="text-sm text-white/60">{t('contact.info.address_on_request')}</p>
                 </div>
               </div>
             </div>
@@ -120,20 +122,20 @@ const Footer = () => {
         <div className="border-t border-white/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/60 text-sm">
-              © {currentYear} AEESTR. Tous droits réservés.
+              © {currentYear} AEESTR. {t('footer.rights')}
             </p>
             <div className="flex items-center gap-6 text-sm text-white/60">
               <a href="#" className="hover:text-white transition-colors duration-300">
-                Politique de Confidentialité
+                {t('footer.privacy_policy')}
               </a>
               <a href="#" className="hover:text-white transition-colors duration-300">
-                Conditions d'Utilisation
+                {t('footer.terms_of_use')}
               </a>
               <a href="#" className="hover:text-white transition-colors duration-300">
-                Plan du Site
+                {t('footer.sitemap')}
               </a>
               <a href="/admin/login" className="hover:text-white transition-colors duration-300">
-                Admin
+                {t('footer.admin_login')}
               </a>
             </div>
           </div>

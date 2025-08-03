@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Filter, X, Play, Image as ImageIcon, Video } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { useTranslation } from "react-i18next";
 
 interface GalleryItem {
   id: string;
@@ -18,6 +19,7 @@ interface GalleryItem {
 }
 
 const Gallery = () => {
+  const { t } = useTranslation();
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [filter, setFilter] = useState<'all' | 'photo' | 'video'>('all');
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
@@ -48,8 +50,8 @@ const Gallery = () => {
           };
           setItems(prevItems => [newItem, ...prevItems]);
           toast({
-            title: "Nouveau contenu ajouté",
-            description: `${newItem.title} a été ajouté à la galerie.`
+            title: t('gallery.new_content_added'),
+            description: `${newItem.title} ${t('gallery.added_to_gallery')}`
           });
         }
       )
@@ -84,8 +86,8 @@ const Gallery = () => {
     } catch (error) {
       console.error('Error loading gallery:', error);
       toast({
-        title: "Error",
-        description: "Unable to load gallery.",
+        title: t('common.error'),
+        description: t('gallery.unable_to_load'),
         variant: "destructive"
       });
     }
@@ -99,12 +101,11 @@ const Gallery = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Our <span className="text-secondary">Gallery</span>
+            {t('gallery.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-hero mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-black font-bold max-w-4xl mx-auto leading-relaxed">
-            Discover our activities, events and memorable moments through photos and videos. 
-            Chaque image raconte l'histoire de notre communauté dynamique.
+            {t('gallery.description')}
           </p>
         </div>
 
@@ -117,7 +118,7 @@ const Gallery = () => {
               className="flex items-center gap-2"
             >
               <Filter className="w-4 h-4" />
-              Tout voir ({items.length})
+              {t('gallery.view_all')} ({items.length})
             </Button>
             <Button
               variant={filter === 'photo' ? 'default' : 'outline'}
@@ -125,7 +126,7 @@ const Gallery = () => {
               className="flex items-center gap-2"
             >
               <ImageIcon className="w-4 h-4" />
-              Photos ({items.filter(item => item.type === 'photo').length})
+              {t('gallery.photos')} ({items.filter(item => item.type === 'photo').length})
             </Button>
             <Button
               variant={filter === 'video' ? 'default' : 'outline'}
@@ -133,7 +134,7 @@ const Gallery = () => {
               className="flex items-center gap-2"
             >
               <Video className="w-4 h-4" />
-              Videos ({items.filter(item => item.type === 'video').length})
+              {t('gallery.videos')} ({items.filter(item => item.type === 'video').length})
             </Button>
           </div>
         </div>
@@ -176,16 +177,16 @@ const Gallery = () => {
                   <div className="absolute top-3 right-3">
                     <Badge variant="secondary" className="bg-white/90 text-foreground">
                       {item.type === "video" ? (
-                        <><Video className="w-3 h-3 mr-1" /> Vidéo</>
+                        <><Video className="w-3 h-3 mr-1" /> {t('gallery.video')}</>
                       ) : (
-                        <><ImageIcon className="w-3 h-3 mr-1" /> Photo</>
+                        <><ImageIcon className="w-3 h-3 mr-1" /> {t('gallery.photo')}</>
                       )}
                     </Badge>
                   </div>
 
                   {/* Overlay Content */}
                   <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-sm font-medium">Cliquer pour voir plus</p>
+                    <p className="text-sm font-medium">{t('gallery.click_to_view')}</p>
                   </div>
                 </div>
                 
@@ -211,11 +212,11 @@ const Gallery = () => {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <ImageIcon className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-foreground">Aucun contenu trouvé</h3>
+            <h3 className="text-xl font-semibold mb-2 text-foreground">{t('gallery.no_content_found')}</h3>
             <p className="text-black font-semibold mb-6">
               {filter === 'all' 
-                ? "La galerie est vide. Soyez le premier à partager du contenu !"
-                : `Aucun ${filter === 'photo' ? 'photo' : 'vidéo'} trouvée.`
+                ? t('gallery.empty_gallery')
+                : t('gallery.no_media_type', { type: filter === 'photo' ? t('gallery.photos') : t('gallery.videos') })
               }
             </p>
           </div>
@@ -254,7 +255,7 @@ const Gallery = () => {
                   <p className="mt-4 text-black font-semibold">{selectedItem.description}</p>
                 )}
                 <p className="text-sm text-black font-semibold mt-2">
-                  Uploadé le {new Date(selectedItem.upload_date).toLocaleDateString('fr-FR')}
+                  {t('gallery.uploaded_on', { date: new Date(selectedItem.upload_date).toLocaleDateString() })}
                 </p>
               </div>
             </DialogContent>

@@ -76,7 +76,20 @@
     "title": "Galerie",
     "description": "Moments et souvenirs de nos activités communautaires",
     "no_media": "Aucun média disponible pour le moment. Revenez plus tard !",
-    "admin_panel": "Panneau d'Administration"
+    "admin_panel": "Panneau d'Administration",
+    "view_all": "Tout Voir",
+    "photos": "Photos",
+    "videos": "Vidéos",
+    "photo": "Photo",
+    "video": "Vidéo",
+    "click_to_view": "Cliquer pour voir plus",
+    "no_content_found": "Aucun contenu trouvé",
+    "empty_gallery": "La galerie est vide. Soyez le premier à partager du contenu !",
+    "no_media_type": "Aucun {{type}} trouvé.",
+    "uploaded_on": "Uploadé le {{date}}",
+    "new_content_added": "Nouveau contenu ajouté",
+    "added_to_gallery": "a été ajouté à la galerie",
+    "unable_to_load": "Impossible de charger la galerie."
   },
   "contact": {
     "title": "Nous Contacter",
@@ -92,17 +105,26 @@
       "message": "Message",
       "message_placeholder": "Parlez-nous plus de votre demande...",
       "send": "Envoyer le Message",
-      "sending": "Envoi en cours..."
+      "sending": "Envoi en cours...",
+      "send_message": "Envoyez-nous un Message",
+      "fill_required_fields": "Veuillez remplir tous les champs requis.",
+      "required_fields_note": "* Champs requis. Nous sommes disponibles 24h/24 et 7j/7 pour vous aider."
     },
     "info": {
       "reach_out": "Contactez-Nous",
       "email": "Email",
       "phone": "Téléphone",
       "address": "Adresse",
-      "follow": "Suivez-Nous"
+      "follow": "Suivez-Nous",
+      "available_247": "Disponible 24h/24 et 7j/7",
+      "address_on_request": "Adresse complète disponible sur demande",
+      "availability": "Disponibilité",
+      "every_day": "Tous les jours",
+      "247": "24h/24 et 7j/7"
     },
     "success": "Merci pour votre message ! Nous vous répondrons bientôt.",
-    "error": "Échec de l'envoi du message. Veuillez réessayer."
+    "error": "Échec de l'envoi du message. Veuillez réessayer.",
+    "response_soon": "Nous vous répondrons dans les plus brefs délais."
   },
   "footer": {
     "description": "Autonomiser les étudiants tchadiens au Rwanda par l'unité, l'éducation et l'échange culturel.",
@@ -110,7 +132,10 @@
     "contact_info": "Informations de Contact",
     "follow_us": "Suivez-Nous",
     "rights": "Tous droits réservés.",
-    "admin_login": "Connexion Admin"
+    "admin_login": "Connexion Admin",
+    "privacy_policy": "Politique de Confidentialité",
+    "terms_of_use": "Conditions d'Utilisation",
+    "sitemap": "Plan du Site"
   },
   "admin": {
     "login": {
