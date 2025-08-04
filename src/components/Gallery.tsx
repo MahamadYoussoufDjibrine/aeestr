@@ -158,9 +158,10 @@ const Gallery = () => {
                     />
                   ) : (
                     <div className="relative">
-                      <img 
-                        src={item.thumbnail || `${item.url}#t=1`}
-                        alt={item.title}
+                      <video 
+                        src={item.url}
+                        preload="metadata"
+                        muted
                         className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -247,7 +248,7 @@ const Gallery = () => {
                 ) : (
                   <video 
                     src={selectedItem.url}
-                    poster={selectedItem.thumbnail}
+                    poster={selectedItem.thumbnail || undefined}
                     controls
                     preload="metadata"
                     className="w-full max-h-[60vh] rounded-lg"
