@@ -53,17 +53,20 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item, index) => (
-              <button
+              <Button
                 key={index}
+                variant="ghost"
                 onClick={() => scrollToSection(item.section)}
-                className={`font-medium transition-colors duration-300 hover:text-primary ${
-                  isScrolled ? 'text-foreground' : 'text-white hover:text-white/80'
+                className={`font-medium transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:backdrop-blur-sm rounded-lg px-4 py-2 ${
+                  isScrolled 
+                    ? 'text-foreground hover:text-primary hover:bg-primary/10' 
+                    : 'text-white hover:text-white hover:shadow-lg hover:shadow-white/20'
                 }`}
               >
                 {item.label}
-              </button>
+              </Button>
             ))}
             <LanguageSwitcher />
           </div>
@@ -82,15 +85,16 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white/95 backdrop-blur-md shadow-card rounded-lg mt-2 p-4 animate-fade-in-up">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-2">
               {navItems.map((item, index) => (
-                <button
+                <Button
                   key={index}
+                  variant="ghost"
                   onClick={() => scrollToSection(item.section)}
-                  className="text-left font-medium text-foreground hover:text-primary transition-colors duration-300 py-2"
+                  className="text-left font-medium text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 justify-start rounded-lg px-4 py-3 hover:scale-[1.02]"
                 >
                   {item.label}
-                </button>
+                </Button>
               ))}
               <div className="pt-2 border-t border-border">
                 <LanguageSwitcher />
