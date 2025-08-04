@@ -22,7 +22,12 @@ const Footer = () => {
               {t('footer.description')}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors duration-300">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61565091926613" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors duration-300"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
               <a href="#" className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors duration-300">
