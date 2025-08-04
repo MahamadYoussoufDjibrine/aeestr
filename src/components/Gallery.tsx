@@ -247,6 +247,7 @@ const Gallery = () => {
                 ) : (
                   <video 
                     src={selectedItem.url}
+                    poster={selectedItem.thumbnail || `${selectedItem.url}#t=1`}
                     controls
                     className="w-full max-h-[60vh] rounded-lg"
                   />
