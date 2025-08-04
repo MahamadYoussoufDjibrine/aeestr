@@ -247,8 +247,9 @@ const Gallery = () => {
                 ) : (
                   <video 
                     src={selectedItem.url}
-                    poster={selectedItem.thumbnail || `${selectedItem.url}#t=1`}
+                    poster={selectedItem.thumbnail}
                     controls
+                    preload="metadata"
                     className="w-full max-h-[60vh] rounded-lg"
                   />
                 )}
