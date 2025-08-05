@@ -7,7 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Upload, Plus, Trash2, LogOut, Image as ImageIcon, Video, Play, Edit, Home } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { Upload, Plus, Trash2, LogOut, Image as ImageIcon, Video, Play, Edit, Home, MessageSquare, Eye, EyeOff } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -21,23 +22,41 @@ interface GalleryItem {
   upload_date: string;
 }
 
+interface AdminMessage {
+  id: string;
+  title: string;
+  content: string;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+  author_email: string;
+}
+
 const AdminDashboard = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
+  const [messages, setMessages] = useState<AdminMessage[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isMessageDialogOpen, setIsMessageDialogOpen] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadForm, setUploadForm] = useState({
     title: '',
     description: '',
     type: 'image' as 'image' | 'video'
   });
+  const [messageForm, setMessageForm] = useState({
+    title: '',
+    content: ''
+  });
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [adminName, setAdminName] = useState("");
+  const [adminEmail, setAdminEmail] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     checkAuth();
     loadGalleryItems();
+    loadMessages();
   }, []);
 
   const checkAuth = async () => {
@@ -62,6 +81,7 @@ const AdminDashboard = () => {
     }
 
     setAdminName(adminData.name);
+    setAdminEmail(session.user.email || "");
   };
 
   const loadGalleryItems = async () => {
@@ -89,6 +109,119 @@ const AdminDashboard = () => {
       toast({
         title: "Error",
         description: "Unable to load gallery.",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const loadMessages = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('admin_messages')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      
+      setMessages(data || []);
+    } catch (error) {
+      console.error('Error loading messages:', error);
+      toast({
+        title: "Error",
+        description: "Unable to load messages.",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleCreateMessage = async () => {
+    if (!messageForm.title.trim() || !messageForm.content.trim()) {
+      toast({
+        title: "Error",
+        description: "Please fill in both title and content.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('admin_messages')
+        .insert([{
+          title: messageForm.title,
+          content: messageForm.content,
+          author_email: adminEmail
+        }]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Success",
+        description: "Message created successfully!",
+      });
+
+      setMessageForm({ title: '', content: '' });
+      setIsMessageDialogOpen(false);
+      loadMessages();
+    } catch (error) {
+      console.error('Message creation error:', error);
+      toast({
+        title: "Error",
+        description: "Error creating message.",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleToggleMessage = async (messageId: string, currentStatus: boolean) => {
+    try {
+      const { error } = await supabase
+        .from('admin_messages')
+        .update({ is_active: !currentStatus })
+        .eq('id', messageId);
+
+      if (error) throw error;
+
+      toast({
+        title: "Success",
+        description: `Message ${!currentStatus ? 'activated' : 'deactivated'} successfully!`,
+      });
+
+      loadMessages();
+    } catch (error) {
+      console.error('Toggle message error:', error);
+      toast({
+        title: "Error",
+        description: "Error updating message status.",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleDeleteMessage = async (messageId: string, title: string) => {
+    if (!confirm(`Are you sure you want to delete "${title}"?`)) {
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('admin_messages')
+        .delete()
+        .eq('id', messageId);
+
+      if (error) throw error;
+
+      toast({
+        title: "Success",
+        description: "Message deleted successfully!",
+      });
+
+      loadMessages();
+    } catch (error) {
+      console.error('Delete message error:', error);
+      toast({
+        title: "Error",
+        description: "Error deleting message.",
         variant: "destructive"
       });
     }
@@ -366,6 +499,114 @@ const AdminDashboard = () => {
               </Dialog>
             </CardTitle>
           </CardHeader>
+        </Card>
+
+        {/* Messages Management */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center justify-between">
+              Message Management
+              <Dialog open={isMessageDialogOpen} onOpenChange={setIsMessageDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button className="bg-gradient-hero hover:opacity-90">
+                    <MessageSquare className="w-4 h-4 mr-2" />
+                    New Message
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <DialogTitle>Create New Message</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <div>
+                      <Label htmlFor="messageTitle">Title *</Label>
+                      <Input
+                        id="messageTitle"
+                        value={messageForm.title}
+                        onChange={(e) => setMessageForm(prev => ({ ...prev, title: e.target.value }))}
+                        placeholder="Message title"
+                      />
+                    </div>
+                    
+                    <div>
+                      <Label htmlFor="messageContent">Content *</Label>
+                      <Textarea
+                        id="messageContent"
+                        value={messageForm.content}
+                        onChange={(e) => setMessageForm(prev => ({ ...prev, content: e.target.value }))}
+                        placeholder="Message content"
+                        rows={4}
+                      />
+                    </div>
+
+                    <Button
+                      type="button"
+                      onClick={handleCreateMessage}
+                      className="w-full bg-gradient-hero hover:opacity-90"
+                    >
+                      <MessageSquare className="w-4 h-4 mr-2" />
+                      Create Message
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </CardTitle>
+          </CardHeader>
+          
+          <CardContent>
+            <div className="space-y-4">
+              {messages.map((message) => (
+                <Card key={message.id} className="border-l-4 border-l-primary">
+                  <CardContent className="p-4">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h3 className="font-semibold">{message.title}</h3>
+                          <Badge variant={message.is_active ? "default" : "secondary"}>
+                            {message.is_active ? "Active" : "Inactive"}
+                          </Badge>
+                        </div>
+                        <p className="text-muted-foreground mb-3">{message.content}</p>
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                          <span>By: {message.author_email}</span>
+                          <span>Created: {new Date(message.created_at).toLocaleDateString('fr-FR')}</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-2 ml-4">
+                        <div className="flex items-center gap-2">
+                          <Switch
+                            checked={message.is_active}
+                            onCheckedChange={() => handleToggleMessage(message.id, message.is_active)}
+                          />
+                          <span className="text-sm text-muted-foreground">
+                            {message.is_active ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                          </span>
+                        </div>
+                        <Button
+                          variant="destructive"
+                          size="sm"
+                          onClick={() => handleDeleteMessage(message.id, message.title)}
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+              
+              {messages.length === 0 && (
+                <div className="text-center py-8">
+                  <MessageSquare className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                  <h3 className="text-lg font-medium mb-2">No Messages</h3>
+                  <p className="text-muted-foreground">
+                    Create your first message to communicate with users.
+                  </p>
+                </div>
+              )}
+            </div>
+          </CardContent>
         </Card>
 
         {/* Gallery Items */}
