@@ -381,10 +381,11 @@ const AdminDashboard = () => {
                   />
                 ) : (
                   <div className="relative">
-                    <img 
-                      src={item.thumbnail || `${item.url}#t=1`}
-                      alt={item.title}
+                    <video 
+                      src={item.url}
                       className="w-full h-48 object-cover"
+                      preload="metadata"
+                      muted
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="bg-black/60 rounded-full p-3">
