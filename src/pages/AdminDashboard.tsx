@@ -32,9 +32,19 @@ interface AdminMessage {
   author_email: string;
 }
 
+interface ContactMessage {
+  id: string;
+  name: string;
+  email: string;
+  message: string;
+  status: string;
+  created_at: string;
+}
+
 const AdminDashboard = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [messages, setMessages] = useState<AdminMessage[]>([]);
+  const [contacts, setContacts] = useState<ContactMessage[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isMessageDialogOpen, setIsMessageDialogOpen] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -57,6 +67,7 @@ const AdminDashboard = () => {
     checkAuth();
     loadGalleryItems();
     loadMessages();
+    loadContacts();
   }, []);
 
   const checkAuth = async () => {
@@ -129,6 +140,51 @@ const AdminDashboard = () => {
       toast({
         title: "Error",
         description: "Unable to load messages.",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const loadContacts = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('contacts')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      
+      setContacts(data || []);
+    } catch (error) {
+      console.error('Error loading contacts:', error);
+      toast({
+        title: "Error",
+        description: "Unable to load contact messages.",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleUpdateContactStatus = async (contactId: string, newStatus: string) => {
+    try {
+      const { error } = await supabase
+        .from('contacts')
+        .update({ status: newStatus })
+        .eq('id', contactId);
+
+      if (error) throw error;
+
+      toast({
+        title: "Success",
+        description: `Contact status updated to ${newStatus}.`,
+      });
+
+      loadContacts();
+    } catch (error) {
+      console.error('Update contact status error:', error);
+      toast({
+        title: "Error",
+        description: "Error updating contact status.",
         variant: "destructive"
       });
     }
@@ -371,7 +427,7 @@ const AdminDashboard = () => {
 
       <div className="container mx-auto px-4 py-8">
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">Total Media</CardTitle>
@@ -394,6 +450,17 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{items.filter(item => item.type === 'video').length}</div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">Contact Messages</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{contacts.length}</div>
+              <div className="text-xs text-muted-foreground mt-1">
+                {contacts.filter(c => c.status === 'new').length} new
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -499,6 +566,64 @@ const AdminDashboard = () => {
               </Dialog>
             </CardTitle>
           </CardHeader>
+        </Card>
+
+        {/* Contact Messages */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <MessageSquare className="w-5 h-5" />
+              Contact Messages ({contacts.length})
+            </CardTitle>
+          </CardHeader>
+          
+          <CardContent>
+            <div className="space-y-4">
+              {contacts.map((contact) => (
+                <Card key={contact.id} className="border-l-4 border-l-secondary">
+                  <CardContent className="p-4">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h3 className="font-semibold">{contact.name}</h3>
+                          <Badge variant={contact.status === 'new' ? "default" : contact.status === 'replied' ? "secondary" : "outline"}>
+                            {contact.status}
+                          </Badge>
+                        </div>
+                        <p className="text-sm text-muted-foreground mb-2">{contact.email}</p>
+                        <p className="text-muted-foreground mb-3">{contact.message}</p>
+                        <div className="text-sm text-muted-foreground">
+                          Received: {new Date(contact.created_at).toLocaleDateString('fr-FR')} at {new Date(contact.created_at).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-2 ml-4">
+                        <select 
+                          value={contact.status} 
+                          onChange={(e) => handleUpdateContactStatus(contact.id, e.target.value)}
+                          className="text-sm border border-border rounded px-2 py-1 bg-background"
+                        >
+                          <option value="new">New</option>
+                          <option value="replied">Replied</option>
+                          <option value="closed">Closed</option>
+                        </select>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+              
+              {contacts.length === 0 && (
+                <div className="text-center py-8">
+                  <MessageSquare className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                  <h3 className="text-lg font-medium mb-2">No Contact Messages</h3>
+                  <p className="text-muted-foreground">
+                    Contact messages from users will appear here.
+                  </p>
+                </div>
+              )}
+            </div>
+          </CardContent>
         </Card>
 
         {/* Messages Management */}
