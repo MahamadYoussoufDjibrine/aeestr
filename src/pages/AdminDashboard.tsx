@@ -190,6 +190,35 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleDeleteContact = async (contactId: string, name: string) => {
+    if (!confirm(`Are you sure you want to delete the contact message from "${name}"?`)) {
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('contacts')
+        .delete()
+        .eq('id', contactId);
+
+      if (error) throw error;
+
+      toast({
+        title: "Success",
+        description: "Contact message deleted successfully!",
+      });
+
+      loadContacts();
+    } catch (error) {
+      console.error('Delete contact error:', error);
+      toast({
+        title: "Error",
+        description: "Error deleting contact message.",
+        variant: "destructive"
+      });
+    }
+  };
+
   const handleCreateMessage = async () => {
     if (!messageForm.title.trim() || !messageForm.content.trim()) {
       toast({
@@ -607,6 +636,14 @@ const AdminDashboard = () => {
                           <option value="replied">Replied</option>
                           <option value="closed">Closed</option>
                         </select>
+                        <Button
+                          variant="destructive"
+                          size="sm"
+                          onClick={() => handleDeleteContact(contact.id, contact.name)}
+                          title="Delete contact message"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
                       </div>
                     </div>
                   </CardContent>
