@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/e0df8263-318c-486c-b9f8-e7513b401d58
+**URL**:(https://aeestr.netlify.app/)
 
 ## How can I edit this code?
 
@@ -10,7 +10,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e0df8263-318c-486c-b9f8-e7513b401d58) and start prompting.
+Simply visit the(https://aeestr.netlify.app/) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
